@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Rules of Money | The Financial Shield</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #F5E6C0;
+    --rose-gold: #C4876B;
+    --rose-gold-light: #D4A090;
+    --deep: #1A1208;
+    --dark: #231A0A;
+    --mid: #3D2B10;
+    --cream: #FAF5EC;
+    --cream-dark: #F0E8D5;
+    --white: #FFFDF8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { 
+    scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: var(--deep);
+  }
+  nav {
+    position: sticky; top: 0; left: 0; right: 0; z-index: 50;
+    width: 100%;
+    padding: 20px 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(26,18,8,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+  }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--rose-gold));
+    color: var(--deep);
+    padding: 10px 28px;
+    border: none; border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    cursor: pointer; text-decoration: none;
+    transition: opacity 0.3s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+  .hero {
+    min-height: 100vh;
+    background: var(--deep);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    padding: 120px 40px 80px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 50% at 80% 80%, rgba(196,135,107,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 20% 20%, rgba(201,168,76,0.06) 0%, transparent 60%);
+  }
+  .hero-lines {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center; max-width: 860px;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 24px;
+    padding: 8px 20px;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 2px;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300; line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 12px;
+    animation: fadeUp 0.8s ease 0.1s both;
+  }
+  .hero-title span {
+    display: block;
+    background: linear-gradient(135deg, var(--gold-light), var(--rose-gold-light));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-style: italic; font-weight: 600;
+  }
+  .hero-sub {
+    font-size: 0.95rem; font-weight: 300; letter-spacing: 0.08em;
+    color: rgba(245,230,192,0.7);
+    margin-bottom: 48px; line-height: 1.8;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+  .hero-buttons {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--rose-gold));
+    color: var(--deep);
+    padding: 18px 44px;
+    border: none; border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: pointer; text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 30px rgba(201,168,76,0.3);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(201,168,76,0.45);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--gold-light);
+    padding: 18px 44px;
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: pointer; text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .btn-secondary:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: var(--gold);
+  }
+  .hero-scroll {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(201,168,76,0.5); font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; animation: bounce 2s ease infinite;
+  }
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent);
+  }
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--rose-gold), transparent);
+  }
+  .shield-section {
+    background: var(--white);
+    padding: 100px 5%;
+    width: 100%;
+  }
+  .section-label {
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300; line-height: 1.15;
+    color: var(--deep); margin-bottom: 24px;
+  }
+  .section-title em { font-style: italic; color: var(--rose-gold); }
+  .section-body {
+    font-size: 0.9rem; font-weight: 300; line-height: 1.9;
+    color: var(--mid); max-width: 560px;
+  }
+  .shield-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .shield-pillars {
+    display: flex; flex-direction: column; gap: 32px;
+    margin-top: 60px;
+  }
+  .pillar {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 24px; background: var(--cream);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .pillar:hover {
+    transform: translateX(6px);
+    box-shadow: -3px 0 20px rgba(201,168,76,0.15);
+  }
+  .pillar-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--gold), var(--rose-gold));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+  .pillar-text h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600; color: var(--deep);
+    margin-bottom: 6px;
+  }
+  .pillar-text p {
+    font-size: 0.82rem; font-weight: 300; line-height: 1.7;
+    color: var(--mid);
+  }
+  .shield-visual {
+    display: flex; justify-content: center; align-items: center;
+  }
+  .shield-emblem {
+    width: 300px; height: 340px;
+    position: relative;
+  }
+  .shield-shape {
+    width: 100%; height: 100%;
+    background: linear-gradient(160deg, var(--deep) 0%, var(--mid) 100%);
+    clip-path: polygon(50% 0%, 100% 20%, 100% 65%, 50% 100%, 0% 65%, 0% 20%);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(201,168,76,0.2), inset 0 0 60px rgba(201,168,76,0.05);
+    position: relative;
+  }
+  .shield-shape::before {
+    content: '';
+    position: absolute; inset: 8px;
+    clip-path: polygon(50% 0%, 100% 20%, 100% 65%, 50% 100%, 0% 65%, 0% 20%);
+    border: 1px solid rgba(201,168,76,0.3);
+  }
+  .shield-inner-text {
+    text-align: center; z-index: 1; padding: 20px;
+  }
+  .shield-inner-text .big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-light), var(--rose-gold-light));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  .shield-inner-text .small {
+    font-size: 0.6rem; letter-spacing: 0.25em;
+    text-transform: uppercase; color: rgba(245,230,192,0.6);
+    margin-top: 8px;
+  }
+  .shield-tags {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    justify-content: center; margin-top: 20px;
+  }
+  .shield-tag {
+    font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; padding: 5px 12px;
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold); border-radius: 2px;
+  }
+  .stats-bar {
+    background: linear-gradient(135deg, var(--deep), var(--dark));
+    padding: 60px 5%;
+    width: 100%;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .stats-grid {
+    max-width: 900px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 40px; text-align: center;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 300;
+    background: linear-gradient(135deg, var(--gold-light), var(--rose-gold-light));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: rgba(245,230,192,0.5);
+    margin-top: 8px;
+  }
+  .stat-divider {
+    width: 1px; background: rgba(201,168,76,0.2);
+  }
+  .course-section {
+    background: var(--cream);
+    padding: 100px 5%;
+    width: 100%;
+  }
+  .course-inner {
+    max-width: 1100px; margin: 0 auto;
+  }
+  .course-header {
+    text-align: center; margin-bottom: 70px;
+  }
+  .course-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; margin-bottom: 60px;
+  }
+  .course-card {
+    background: var(--white);
+    padding: 36px 28px;
+    border-radius: 4px;
+    border: 1px solid rgba(201,168,76,0.15);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .course-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--rose-gold));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(201,168,76,0.12);
+    border-color: rgba(201,168,76,0.3);
+  }
+  .course-card:hover::after { transform: scaleX(1); }
+  .card-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300;
+    color: var(--gold-pale); line-height: 1;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600;
+    color: var(--deep); margin-bottom: 10px;
+  }
+  .card-body {
+    font-size: 0.82rem; font-weight: 300; line-height: 1.8;
+    color: var(--mid);
+  }
+  .book-section {
+    background: var(--deep);
+    padding: 100px 5%;
+    width: 100%;
+    position: relative; overflow: hidden;
+  }
+  .book-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 10% 50%, rgba(196,135,107,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 90% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
+  }
+  .book-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+    position: relative; z-index: 2;
+  }
+  .book-mockup {
+    display: flex; justify-content: center;
+  }
+  .book-cover {
+    width: 240px; height: 320px;
+    background: linear-gradient(160deg, var(--mid) 0%, var(--dark) 100%);
+    border-radius: 4px 12px 12px 4px;
+    box-shadow:
+      -8px 8px 0 rgba(0,0,0,0.4),
+      0 20px 60px rgba(201,168,76,0.25),
+      inset -2px 0 8px rgba(0,0,0,0.3);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 30px 24px; text-align: center;
+    border-top: 4px solid var(--gold);
+    position: relative;
+    animation: float 4s ease-in-out infinite;
+  }
+  .book-cover::before {
+    content: '';
+    position: absolute; left: 8px; top: 0; bottom: 0;
+    width: 4px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 2px;
+  }
+  .book-cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 700; line-height: 1.2;
+    background: linear-gradient(135deg, var(--gold-light), var(--rose-gold-light));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+  .book-cover-sub {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(245,230,192,0.5); line-height: 1.6;
+  }
+  .book-cover-line {
+    width: 60px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 16px auto;
+  }
+  .book-content { color: var(--cream); }
+  .book-content .section-label { color: var(--rose-gold-light); }
+  .book-content .section-title { color: var(--white); }
+  .book-content .section-body { color: rgba(245,230,192,0.65); }
+  .book-perks {
+    display: flex; flex-direction: column; gap: 12px;
+    margin: 28px 0;
+  }
+  .book-perk {
+    display: flex; gap: 12px; align-items: center;
+    font-size: 0.82rem; font-weight: 300; color: rgba(245,230,192,0.75);
+  }
+  .perk-dot {
+    width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--gold), var(--rose-gold));
+  }
+  .signup-section {
+    background: var(--white);
+    padding: 100px 5%;
+    width: 100%;
+  }
+  .signup-inner {
+    max-width: 640px; margin: 0 auto; text-align: center;
+  }
+  .signup-inner .section-title { margin-bottom: 16px; }
+  .signup-inner .section-body {
+    margin: 0 auto 48px; text-align: center; max-width: 480px;
+  }
+  .form-group {
+    display: flex; flex-direction: column; gap: 16px;
+    margin-bottom: 20px;
+  }
+  .form-row { display: flex; gap: 16px; }
+  .form-row input { flex: 1; }
+  input[type="text"], input[type="email"], input[type="tel"] {
+    width: 100%;
+    padding: 16px 20px;
+    background: var(--cream);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem; font-weight: 300;
+    color: var(--deep);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+  }
+  input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+  }
+  input::placeholder { color: rgba(61,43,16,0.4); }
+  .form-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--gold), var(--rose-gold));
+    color: var(--deep);
+    padding: 18px;
+    border: none; border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 24px rgba(201,168,76,0.3);
+    margin-top: 8px;
+  }
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 36px rgba(201,168,76,0.45);
+  }
+  .form-note {
+    font-size: 0.72rem; font-weight: 300; letter-spacing: 0.05em;
+    color: rgba(61,43,16,0.45); margin-top: 16px;
+  }
+  .ghl-form-wrapper {
+    width: 100%;
+    background: var(--cream);
+    border-radius: 4px;
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 8px;
+    box-shadow: 0 4px 24px rgba(201,168,76,0.08);
+  }
+  footer {
+    background: var(--deep);
+    padding: 40px 5%;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 600;
+    background: linear-gradient(135deg, var(--gold-light), var(--rose-gold-light));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+  .footer-copy {
+    font-size: 0.72rem; font-weight: 300; letter-spacing: 0.1em;
+    color: rgba(245,230,192,0.3);
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-1deg); }
+    50%       { transform: translateY(-12px) rotate(1deg); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1; transform: translateY(0);
+  }
+  @media (max-width: 768px) {
+    nav { padding: 16px 5%; }
+    .shield-grid, .book-inner { grid-template-columns: 1fr; gap: 48px; }
+    .shield-visual { order: -1; }
+    .shield-emblem { width: 220px; height: 260px; }
+    .course-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; gap: 32px; }
+    .stat-divider { display: none; }
+    .shield-section, .course-section, .book-section, .signup-section { padding: 70px 5%; }
+    .stats-bar { padding: 50px 5%; }
+    .form-row { flex-direction: column; }
+    footer { padding: 32px 5%; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">New Rules of Money</div>
+  <a href="#signup" class="nav-cta">Join the Course</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">The Financial Shield System</div>
+    <h1 class="hero-title">
+      The New Rules
+      <span>of Money</span>
+    </h1>
+    <p class="hero-sub">
+      Discover the strategies the wealthy use to build and protect wealth —<br>
+      risk-free, tax-free, and fully insured.
+    </p>
+    <div class="hero-buttons">
+      <a href="#signup" class="btn-primary">Enroll in the Course</a>
+      <a href="#signup" class="btn-secondary">Get the Free Book</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Discover
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="shield-section">
+  <div class="shield-grid">
+    <div>
+      <p class="section-label reveal">The Foundation</p>
+      <h2 class="section-title reveal">The Financial Shield<br><em>Protects Everything</em></h2>
+      <p class="section-body reveal">
+        Most people play financial defense with the wrong tools. The Financial Shield is a three-pillar system that keeps your wealth growing — no matter what the market does, no matter what the government changes.
+      </p>
+      <div class="shield-pillars">
+        <div class="pillar reveal">
+          <div class="pillar-icon">🛡️</div>
+          <div class="pillar-text">
+            <h3>Risk-Free Strategies</h3>
+            <p>Grow your wealth without exposing it to market volatility or unnecessary risk. Your principal is always protected.</p>
+          </div>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-icon">💰</div>
+          <div class="pillar-text">
+            <h3>Tax-Free Growth</h3>
+            <p>Keep more of what you earn. Learn the legal strategies that allow your money to compound without Uncle Sam taking a cut.</p>
+          </div>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-icon">✨</div>
+          <div class="pillar-text">
+            <h3>Insurance Strategies</h3>
+            <p>Use powerful insurance vehicles that double as wealth-building tools — the way the ultra-wealthy have for generations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="shield-visual reveal">
+      <div class="shield-emblem">
+        <div class="shield-shape">
+          <div class="shield-inner-text">
+            <div class="big">NRM</div>
+            <div class="shield-tags">
+              <span class="shield-tag">Risk-Free</span>
+              <span class="shield-tag">Tax-Free</span>
+              <span class="shield-tag">Insured</span>
+            </div>
+            <div class="small">The Financial Shield</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="reveal">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Core Pillars of Protection</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="reveal">
+      <div class="stat-num">0%</div>
+      <div class="stat-label">Market Risk to Your Principal</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="reveal">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Generational Wealth Potential</div>
+    </div>
+  </div>
+</div>
+
+<section class="course-section">
+  <div class="course-inner">
+    <div class="course-header">
+      <p class="section-label reveal">What You'll Learn</p>
+      <h2 class="section-title reveal">Inside the<br><em>New Rules of Money Course</em></h2>
+    </div>
+    <div class="course-grid">
+      <div class="course-card reveal">
+        <div class="card-num">01</div>
+        <h3 class="card-title">Unlearn the Old System</h3>
+        <p class="card-body">The financial rules you were taught are designed to benefit everyone but you. Discover why the traditional path keeps most people broke — and what to do instead.</p>
+      </div>
+      <div class="course-card reveal">
+        <div class="card-num">02</div>
+        <h3 class="card-title">Build the Shield</h3>
+        <p class="card-body">Step by step, we walk you through setting up your own Financial Shield — using tools and vehicles that grow your wealth while keeping it fully protected.</p>
+      </div>
+      <div class="course-card reveal">
+        <div class="card-num">03</div>
+        <h3 class="card-title">Tax-Free Mastery</h3>
+        <p class="card-body">Learn the exact strategies used by high-net-worth individuals to legally eliminate or defer taxes on their wealth — and how you can apply them starting today.</p>
+      </div>
+      <div class="course-card reveal">
+        <div class="card-num">04</div>
+        <h3 class="card-title">Insurance as an Asset</h3>
+        <p class="card-body">Most people see insurance as an expense. We show you how to flip that — turning it into one of the most powerful wealth-building tools available.</p>
+      </div>
+      <div class="course-card reveal">
+        <div class="card-num">05</div>
+        <h3 class="card-title">Your Better Bank Account</h3>
+        <p class="card-body">Introduction to the Better Bank Account concept — your own personal banking system that pays you interest instead of the bank keeping it.</p>
+      </div>
+      <div class="course-card reveal">
+        <div class="card-num">06</div>
+        <h3 class="card-title">Legacy &amp; Generational Wealth</h3>
+        <p class="card-body">The New Rules aren't just for you — they're for your children and their children. Learn how to structure your finances to pass on true, lasting wealth.</p>
+      </div>
+    </div>
+    <div style="text-align:center;" class="reveal">
+      <a href="#signup" class="btn-primary">Yes — I'm Ready to Enroll</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="book-section" id="book">
+  <div class="book-bg"></div>
+  <div class="book-inner">
+    <div class="book-mockup reveal">
+      <div class="book-cover">
+        <div class="book-cover-title">The Better Bank Account</div>
+        <div class="book-cover-line"></div>
+        <div class="book-cover-sub">Your personal banking strategy for tax-free, risk-free wealth</div>
+      </div>
+    </div>
+    <div class="book-content">
+      <p class="section-label reveal">Free Gift for You</p>
+      <h2 class="section-title reveal">Get the Book.<br><em>Free.</em></h2>
+      <p class="section-body reveal">
+        The Better Bank Account reveals the strategy that puts you in the banker's seat — earning the interest instead of paying it. Sign up for the course and receive the book as our gift to you.
+      </p>
+      <div class="book-perks reveal">
+        <div class="book-perk"><div class="perk-dot"></div>Understand how the wealthy use the banking system differently</div>
+        <div class="book-perk"><div class="perk-dot"></div>Build your own personal banking system from scratch</div>
+        <div class="book-perk"><div class="perk-dot"></div>Access your money tax-free when you need it most</div>
+        <div class="book-perk"><div class="perk-dot"></div>Pass it all down to the next generation</div>
+      </div>
+      <div class="reveal">
+        <a href="#signup" class="btn-primary">Claim Your Free Book</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="signup-section" id="signup">
+  <div class="signup-inner">
+    <p class="section-label reveal">Secure Your Spot</p>
+    <h2 class="section-title reveal">Start Playing<br><em>by the New Rules</em></h2>
+    <p class="section-body reveal">
+      Join the New Rules of Money course and receive your free copy of The Better Bank Account. Your financial shield starts here.
+    </p>
+    <div class="reveal">
+      <div class="form-group">
+        <div class="form-row">
+          <input type="text" id="firstName" placeholder="First Name">
+          <input type="text" id="lastName" placeholder="Last Name">
+        </div>
+        <input type="email" id="email" placeholder="Email Address">
+        <input type="tel" id="phone" placeholder="Phone Number (Optional)">
+      </div>
+      <button class="form-submit" onclick="submitToGHL()">Enroll &amp; Claim My Free Book &rarr;</button>
+      <p class="form-note">&#128274; Your information is 100% private. No spam, ever.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">New Rules of Money</div>
+  <p class="footer-copy">© 2025 New Rules of Money. All rights reserved. | newrulesofmoney.com</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // ── PASTE YOUR GHL WEBHOOK URL HERE ──
+  const GHL_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/BwqKO7q04b9qELFCLIrJ/webhook-trigger/4e05f078-5ba5-4459-833f-50a427b15898';
+
+  // ── PASTE YOUR COURSE LINK HERE ──
+  const COURSE_URL = 'YOUR_COURSE_LINK_HERE';
+
+  // Wire up course buttons
+  document.querySelectorAll('.btn-enroll').forEach(btn => {
+    btn.addEventListener('click', () => window.open(COURSE_URL, '_blank'));
+  });
+
+  // GHL Webhook Form Submit
+  async function submitToGHL() {
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+
+    if (!firstName || !email) {
+      alert('Please enter your first name and email address.');
+      return;
+    }
+
+    const btn = document.querySelector('.form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    try {
+      await fetch(GHL_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
+        body: JSON.stringify({ firstName, lastName, email, phone })
+      });
+      btn.textContent = '✓ You are In! Check Your Email.';
+      btn.style.background = 'linear-gradient(135deg, #4CAF50, #2E7D32)';
+    } catch (err) {
+      btn.textContent = 'Enroll & Claim My Free Book';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    }
+  }
+</script>
+</body>
+</html>
